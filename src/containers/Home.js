@@ -61,6 +61,9 @@ class Home extends React.Component {
 
     render() {
 
+        //redux関連
+        const { actions } = this.props;
+
         //Material-ui関連
         const { classes } = this.props;
 
@@ -87,7 +90,7 @@ class Home extends React.Component {
                         <InputLabel shrink htmlFor="year-helper">西暦</InputLabel>
                         <Select
                             value={this.state.year}
-                            /*onChange={this.handleChange} */
+                            onChange={this.handleChange}
                             inputProps={{
                                 name: 'year',
                                 id: 'year-helper',
@@ -96,11 +99,12 @@ class Home extends React.Component {
                             {years}
                         </Select>
                     </FormControl>
+
                     <FormControl className={classes.formControl}>
                         <InputLabel shrink htmlFor="cour-helper">クール</InputLabel>
                         <Select
                             value={this.state.cour}
-                            /*onChange={this.handleChange} */
+                            onChange={this.handleChange}
                             inputProps={{
                                 name: 'cour',
                                 id: 'cour-helper',
@@ -110,11 +114,12 @@ class Home extends React.Component {
                         </Select>
                     </FormControl>
                 </form>
+
                 <Button
                     variant="contained"
                     color="primary"
                     className={classes.button}
-                /*onClick={() => actions.getAnimes(this.state.year, this.state.cour)} */
+                    onClick={() => actions.getAnimes(this.state.year, this.state.cour)}
                 >
                     {this.state.year}年（{cours_detail_month[this.state.cour - 1]}）<br />のアニメを検索
               <Search className={classes.rightIcon} />
