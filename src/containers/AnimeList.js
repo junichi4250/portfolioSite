@@ -1,5 +1,8 @@
 import React from 'react';
 
+
+// Redux関連
+
 class AnimeList extends React.Component {
     render() {
         return (

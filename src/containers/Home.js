@@ -12,7 +12,7 @@ import Select from '@material-ui/core/Select';
 import Search from '@material-ui/icons/Search';
 
 // AnimeList取得
-//import AnimeList from '../containers/AnimeList';
+import AnimeList from '../containers/AnimeList';
 
 // Redux関連
 import { connect } from 'react-redux';
@@ -57,6 +57,10 @@ class Home extends React.Component {
     state = {
         year: current_year,
         cour: current_cour,
+    };
+
+    handleChange = event => {
+        this.setState({ [event.target.name]: event.target.value });
     };
 
     render() {
@@ -124,7 +128,7 @@ class Home extends React.Component {
                     {this.state.year}年（{cours_detail_month[this.state.cour - 1]}）<br />のアニメを検索
               <Search className={classes.rightIcon} />
                 </Button>
-
+                <AnimeList />
             </div>
         );
     }

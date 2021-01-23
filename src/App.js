@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // コンテナ読み込み
-//import ResponsiveDrawer from './containers/ResponsiveDrawer';
+import ResponsiveDrawer from './containers/ResponsiveDrawer';
 //import RouteRelatedBottomNavigation from './containers/RouteRelatedBottomNavigation';
 //import Notification from './containers/Notification';
 import Home from './containers/Home';
@@ -28,12 +28,16 @@ const NotFound = () => {
 class App extends Component {
   render() {
     return (
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/info" component={Info} />
-        <Route exact path="/settings" component={Settings} />
-        <Route component={NotFound} />
-      </Switch>
+      <div className="App">
+        <ResponsiveDrawer className="ResponsiveDrawer">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/info" component={Info} />
+            <Route exact path="/settings" component={Settings} />
+            <Route component={NotFound} />
+          </Switch>
+        </ResponsiveDrawer>
+      </div>
     );
   }
 }
